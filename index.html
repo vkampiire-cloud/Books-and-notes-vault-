@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme = "nordic" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanessa's Book Store - Personal Reading Catalog </title>
+</head>
+<meta name = "description" content="Vanessa's personal bookstore catalog showcasing books read,ratings and shelf milestones ."> 
+<meta name = "author" content = "Vanessa"
+<!-- Google fonts : Lora ( Classic Serif ) & Inter (Clean Sana-Serif)-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href ="https;//fonts.gstatic.com ">
+<link href="https://fonts.googleapis.com/css2?family-Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;600;1,400&display=swap" rel="stylesheet">
+
+<!-- Modular Stylesheets -->
+ <link rel="stylesheet" href="styles/main.css">
+ <link rel="stylesheet" href="styeles/nav.css">
+ <link rel="stylesheet" href="styles/sections.css">
+ <link rel="stylesheet" href="styles/catalog.css">
+ <linl rel="stylesheet" href="styles/modal.css">
+ </head>
+ <body>
+    
+    <!-- Header & Navigation -->
+     <header class="site-header">
+       <div class="nav-container">
+        <a href="#about" class="brand" aria-label="Vanessa's Book store Home">
+         <span class="brand-name">VANESSA'S STORE</span>     
+         <span class="brand-tag">Personal Reading Archive</span>
+         </a>
+
+    <!-- Navigation Links -->
+     <ul class="nav-links">
+        <li class="nav-item"><a href= "#about" class="active ">About</a></li>
+        <li class="nav-item"> <a href="#dashboard">Dashboard</a></li>
+        <li class="nav-item"> <a href="#catalog">Catalog</a></li>
+        <li class="nav-item"> <a href="#preferences">Preferences</a></li>
+
+     </ul>
+<!-- Actions-->
+ <div class=" nav-actions">
+    <button type=" button" class="btn-add-store btn-open-add-book">+ Add Book</button>
+    <button type ="button" class="mobile-toggle" id = "mobile-toggle" arial -label = "Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+ </div>
+</div>
+        <!-- Mobile Nav Panel-->
+         <div class="mobile-nav-panel" id="mobile-nav-panel">
+<a href="#about">About</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#catalog">Catalog </a>
+<a href="# preference">Preferences</a>
+<button type="button" class="btn  btn-primary btn-open-add-book" style="width:100%; margin-top:8px">
+    +Add Book
+</button>
+         </div>
+     </header>
+ <main> 
+    <!-- Section 1 : About -->
+     <section class="page-section " id="about ">
+<div class="container">
+<div class="about -grid">
+    <div>
+        <span class="section-label"> Personal Literary Archive </span>
+        <h1 class=" about-intro-title"> A personal collection of books read7<em>collected</em>.</h1>
+    <p class="about-description">
+        Welcome to my digital reading store.This space documents every book i have read,notes gathered along the way ,and works currently on my shelf across ficition ,essays,memoirs and philosophy.
+    </p>
+    <div style="display: flex; gap:12px; flex-wrap:wrap;">
+        <a href ="#catalog" class="btn btn -primary">Browse My Shelf &rarr</a>
+        <a href = "#dashboard" class="btn btn-secondary">View Reading Stats</a>
+</div> 
+</div>
+<!-- Reader Profile Card-->
+ <div class ="reader-profile-card">
+    <div class=" profile -card-title"> Reader Profile </div>
+    <h3 class="patron-name">Vanessa K .</h3>
+    <p class=" Patron-sub"> Reading &archiving literature since 2023 </p>
+    <div class=" card -meta-list">
+        <div class ="label">Books Cataloged</div>
+        <div class ="val">24 Volumes </div>
+    </div>
+    <div class=" card-meta-item">
+<div class=" label">Primary Focus</div>
+<div class="val"> 75% Achived ></div>
+    </div>
+ </div>
+ </div>
+ </div>
+</div>
+</div>
+
+    </section>
+    <!-- Section 2:Dashboard-->
+     <section class ="page-section" id ="dashboard">
+        <div class ="container ">
+            <div class ="section-header ">
+                <span class="section -label"> Reading Activity</span>
+                <h2 class="section-title">Reading Dashboard</h2>
+                <p class="section-subtitle">Summary of books read ,,currrent reading progress and shelf logs.</p>
+                </div>
+                <!-- Statistics Cards -->
+        <div class="stats-tiles">
+        <div class="stat-tile">
+            <div class="stat-tile-num" id="dash-total-books">24</div>
+            <div class="stat-tile-label" > Books on shelf </div>
+            </div>
+            <div class="stat-tile">
+            <div class="stat-tile-num" id="dash-finished-books">18</div>
+            <div class="stat-tile-label" > Completed Reads </div>
+        </div>
+            <div class="stat-tile">
+                <div class =" stat-tile-num" id="dash-active-reading">2</div>
+                <div class=" stat-tile-label" >Currently Reading </div>
+                </div>
+                <div class="stat-tile">
+                    <div  class="stat-tile-num" id="dash-wishlist -books".>4</div>
+                    <div class=" stat-tile-label">On wishlsit </div>
+                    </div>
+                </div>
+                <!-- Reading Spotlight & recent Acitivty -->
+                 <div class="dashboard-split">
+                    <!-- Currenlty Reading Spotlight-->
+                     <div class="active-reading-card">
+                        <div class="active-read-header"> 
+                            <span class="status-text-label">Currently Reading</span>
+                            <span style="font-size: 0.82;
+                     </div>
+
+
+<div class="active-read-info">
+                <img src="assets/covers/coffee.jpg" alt="Before the Coffee Gets Cold Cover" class="active-book-cover-img">
+                <div>
+                  <h3 style="font-size: 1.25rem; margin-bottom: 2px;">Before the Coffee Gets Cold</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px;">Toshikazu Kawaguchi • Fiction</p>
+                  <p style="font-size: 0.8rem; color: var(--text-muted);">Rating: 4.8 / 5</p>
+                </div>
+              </div>
+
+              <div class="progress-wrap">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary);">
+                  <span>Annual Milestone: 18 of 24 Books</span>
+                  <span style="color: var(--text-primary); font-weight: 500;">75% Completed</span>
+
+
+                 </div>
+                
+        
+
+            
+     </section>
+     
+ </main>
+
+<body>
+    
+</body>
+</html>
