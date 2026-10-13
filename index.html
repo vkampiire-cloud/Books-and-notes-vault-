@@ -7,7 +7,7 @@
 </head>
 <meta name = "description" content="Vanessa's personal bookstore catalog showcasing books read,ratings and shelf milestones ."> 
 <meta name = "author" content = "Vanessa"
-<!-- Google fonts : Lora ( Classic Serif ) & Inter (Clean Sana-Serif)-->
+<!- Google fonts : Lora ( Classic Serif ) & Inter (Clean Sana-Serif)-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href ="https;//fonts.gstatic.com ">
 <link href="https://fonts.googleapis.com/css2?family-Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;600;1,400&display=swap" rel="stylesheet">
@@ -128,7 +128,7 @@
                         <div class="active-read-header"> 
                             <span class="status-text-label">Currently Reading</span>
                             <span style="font-size: 0.82;
-                     </div>
+                
 
 
 <div class="active-read-info">
@@ -145,17 +145,260 @@
                   <span>Annual Milestone: 18 of 24 Books</span>
                   <span style="color: var(--text-primary); font-weight: 500;">75% Completed</span>
 
-
                  </div>
+                 <div class="progress-track">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <a href="#catalog" class="btn btn-secondary" style="flex: 1; font-size: 0.84rem;">View on Shelf</a>
+              <button type="button" class="btn btn-primary" onclick="alert('Progress updated.')" style="flex: 1; font-size: 0.84rem;">Log Progress</button>
+            </div>
+          </div>
+
+          <!-- Recent Additions List -->
+          <div class="activity-panel">
+            <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Recent Shelf Additions</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Recent reading activity</p>
+
+            <ul class="activity-list">
+              <li class="activity-item">
+                <strong>Added "Before the Coffee Gets Cold"</strong>
+                <span>Started reading on Oct 08 • 213 pages</span>
+              </li>
+              <li class="activity-item">
+                <strong>Finished "Klara and the Sun"</strong>
+                <span>Rated 4.9 / 5 • Kazuo Ishiguro</span>
+              </li>
+              <li class="activity-item">
+                <strong>Finished "Crying in H Mart"</strong>
+                <span>Rated 4.9 / 5 • Michelle Zauner</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Catalog -->
+    <section class="page-section" id="catalog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Book Collection</span>
+          <h2 class="section-title">The Book Shelf</h2>
+          <p class="section-subtitle" id="catalog-count">Search and filter books in Vanessa's collection.</p>
+        </div>
+
+        <div class="catalog-wrapper">
+          <!-- Toolbar -->
+          <div class="store-toolbar">
+            <div class="toolbar-search-row">
+              <input 
+                type="text" 
+                id="search-input" 
+                class="search-field" 
+                placeholder="Search books by title, author, or genre..."
+                aria-label="Search Books"
+              >
+
+              <select id="status-filter" class="status-dropdown" aria-label="Filter by Reading Status">
+                <option value="All">All Statuses</option>
+                <option value="Finished">Finished</option>
+                <option value="Reading">Currently Reading</option>
+                <option value="Wishlist">On Wishlist</option>
+              </select>
+            </div>
+
+            <!-- Genre Filter Buttons -->
+            <div class="genre-pills" role="tablist">
+              <button type="button" class="genre-pill active" data-category="All">All Books</button>
+              <button type="button" class="genre-pill" data-category="Fiction">Fiction</button>
+              <button type="button" class="genre-pill" data-category="Essays">Essays & Nature</button>
+              <button type="button" class="genre-pill" data-category="Memoir">Memoir</button>
+              <button type="button" class="genre-pill" data-category="Philosophy">Philosophy</button>
+              <button type="button" class="genre-pill" data-category="Classics">Classics</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Books Grid -->
+          <div class="store-grid" id="store-grid">
+            <!-- Dynamically populated via app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Preferences -->
+    <section class="page-section" id="preferences">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Settings & Reading Targets</span>
+          <h2 class="section-title">Shelf Preferences</h2>
+          <p class="section-subtitle">Set your annual reading target, shelf display modes, and notification alerts.</p>
+        </div>
+
+        <form id="preferences-form">
+          <div class="pref-grid">
+            <div class="pref-card">
+              <h3 style="font-size: 1.15rem; margin-bottom: 14px;">Reading Target</h3>
+
+              <div class="pref-group">
+                <label class="pref-label" for="pref-target">2026 Annual Target</label>
+                <p class="pref-desc">How many books do you aim to finish this year?</p>
+                <select id="pref-target" class="pref-control">
+                  <option value="12">12 Books (1 per month)</option>
+                  <option value="24" selected>24 Books (2 per month — Current Target)</option>
+                  <option value="36">36 Books (3 per month)</option>
+                  <option value="50">50 Books (Master Reader)</option>
+                </select>
+              </div>
+
+              <div class="pref-group">
+                <label class="pref-label" for="pref-display">Default Shelf Layout</label>
+                <p class="pref-desc">Choose how books are displayed across the shelf.</p>
+                <select id="pref-display" class="pref-control">
+                  <option value="grid" selected>Book Cover Grid</option>
+                  <option value="compact">Compact List View</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="pref-card">
+              <h3 style="font-size: 1.15rem; margin-bottom: 14px;">Reading Habit Notifications</h3>
+
+              <div class="pref-group">
+                <label class="pref-label">Daily Habit Reminders</label>
+                <p class="pref-desc">Notifications to maintain your reading streak.</p>
+                
+                <div class="checkbox-row">
+                  <input type="checkbox" id="daily-reminder" checked>
+                  <label for="daily-reminder" style="font-size: 0.85rem; color: var(--text-secondary);">
+                    Remind me to read 20 minutes daily in the evening
+                  </label>
+                </div>
+                <div class="checkbox-row">
+                  <input type="checkbox" id="monthly-digest" checked>
+                  <label for="monthly-digest" style="font-size: 0.85rem; color: var(--text-secondary);">
+                    Send monthly reading recap digest
+                  </label>
+                </div>
+              </div>
+
+              <div class="pref-group" style="margin-top: 20px;">
+                <label class="pref-label" for="pref-primary-genre">Primary Genre Focus</label>
+                <select id="pref-primary-genre" class="pref-control">
+                  <option value="fiction" selected>Contemporary & Classic Fiction</option>
+                  <option value="nature">Essays & Environmental Science</option>
+                  <option value="memoir">Memoirs & Personal Reflections</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; display: flex; justify-content: flex-end;">
+            <button type="submit" class="btn btn-primary">
+              Save Shelf Preferences
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add Book Modal -->
+  <div class="modal-overlay" id="add-book-modal" role="dialog" aria-modal="true" aria-labelledby="add-modal-heading">
+    <div class="modal-dialog">
+      <div class="modal-dialog-header">
+        <h3 class="modal-dialog-title" id="add-modal-heading">Add Book to Shelf</h3>
+        <button type="button" class="btn-close-modal" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="add-book-form">
+        <div class="form-field">
+          <label class="form-label" for="new-book-title">Book Title</label>
+          <input type="text" id="new-book-title" class="form-input-text" placeholder="e.g. The Overstory" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="new-book-author">Author</label>
+          <input type="text" id="new-book-author" class="form-input-text" placeholder="e.g. Richard Powers" required>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label class="form-label" for="new-book-category">Genre</label>
+            <select id="new-book-category" class="form-select-box">
+              <option value="Fiction">Fiction</option>
+              <option value="Essays & Nature">Essays & Nature</option>
+              <option value="Memoir">Memoir</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Classics">Classics</option>
+              <option value="Poetry">Poetry</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="new-book-status">Reading Status</label>
+            <select id="new-book-status" class="form-select-box">
+              <option value="Finished">Finished</option>
+              <option value="Reading">Currently Reading</option>
+              <option value="Wishlist">On Wishlist</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label class="form-label" for="new-book-rating">Rating (1.0 - 5.0)</label>
+            <input type="number" id="new-book-rating" class="form-input-text" min="1.0" max="5.0" step="0.1" value="5.0" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="new-book-pages">Pages</label>
+            <input type="number" id="new-book-pages" class="form-input-text" placeholder="320" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="new-book-synopsis">Synopsis & Personal Notes</label>
+          <textarea id="new-book-synopsis" class="form-textarea-box" placeholder="Personal notes or book summary..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-cancel-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save to Shelf</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Book Details Modal -->
+  <div class="modal-overlay" id="details-modal" role="dialog" aria-modal="true" aria-labelledby="details-heading">
+    <div class="modal-dialog">
+      <div class="modal-dialog-header">
+        <h3 class="modal-dialog-title" id="details-heading">Book Record</h3>
+        <button type="button" class="btn-close-modal" aria-label="Close dialog">&times;</button>
+      </div>
+      <div id="details-body">
+        <!-- Dynamically injected via app.js -->
+      </div>
+    </div>
+  </div>-
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Application Logic -->
+  <script src="scripts/app.js"></script>
                 
         
 
             
-     </section>
+     
      
  </main>
-
-<body>
     
 </body>
 </html>
