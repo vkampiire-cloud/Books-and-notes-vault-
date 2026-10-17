@@ -1,0 +1,413 @@
+/* one style sheet for bookNotes */
+:root {
+  --bg: #0f1217;
+  --card: #161c24;
+  --border: rgba(148, 163, 184, 0.16);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --sky: #38bdf8;
+  --mint: #34d399;
+  --rose: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding-bottom: 2rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--sky);
+  color: #000;
+  padding: 6px 12px;
+  font-weight: 700;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 18, 23, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--sky);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.nav-link a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--sky);
+}
+
+.btn {
+  background: var(--mint);
+  color: #07150e;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+a {
+  color: var(--sky);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard & Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.card b {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--sky);
+  margin-top: 4px;
+  margin-bottom: 1rem;
+}
+
+.target-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  accent-color: var(--mint);
+  margin: 6px 0;
+}
+
+#cap-live {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.trend-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 55px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.bar-fill {
+  width: 100%;
+  max-width: 20px;
+  background: var(--sky);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+.bar-lbl {
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+/* Catalog, Search & Table */
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  min-width: 220px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--sky);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th button {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+th button:hover {
+  color: var(--sky);
+}
+
+mark {
+  background: rgba(56, 189, 248, 0.3);
+  color: #fff;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+.mobile-cards {
+  display: none;
+  gap: 1rem;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .table-wrap {
+    display: none;
+  }
+
+  .mobile-cards {
+    display: flex;
+  }
+
+  .m-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+}
+
+/* Settings, Modal Dialog & Toast */
+#settings label {
+  display: block;
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.data-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.data-actions button,
+.data-actions label {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+dialog {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: auto;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+dialog label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+dialog input,
+dialog textarea {
+  width: 100%;
+}
+
+dialog textarea {
+  height: 50px;
+  resize: vertical;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.err {
+  font-size: 0.75rem;
+  color: var(--rose);
+  min-height: 12px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--mint);
+  color: #041208;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: none;
+  z-index: 999;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
