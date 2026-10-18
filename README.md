@@ -2,8 +2,8 @@
 
 **Student Developer:** Vanessa Kampiire | **Institution:** African Leadership University (ALU) — Sept 2026  
 **Course:** Frontend Web Development (Summative: Responsive UI)  
-**Live Application:** [https://vkampiire-cloud.github.io/Books-and-notes-vault-/](https://vkampiire-cloud.github.io/Books-and-notes-vault-/)  
-**Demo Video (2–3 min):** To be added  
+**Live Application:** [https://vkampiire-cloud.github.io/Books-and-notes-vault-/](https://vkampiire-cloud.github.io/Books-and-notes-vault-/) 
+**Demo Video (2–3 min):** "C:\Users\USER\OneDrive\Desktop\Books-and-notes-vault-\demo video.mp4"
 **sketch:**<img width="759" height="1080" alt="demo sketch" src="https://github.com/user-attachments/assets/b505a49c-c927-4685-92c9-b5877541df00" />
 
 
