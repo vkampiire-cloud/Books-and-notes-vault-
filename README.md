@@ -18,9 +18,7 @@
 ## ⚙️ 2. Setup Guide
 1. **Clone & Navigate:**
    ```bash
-   git clone https://github.com/vanessakampiire/vanessa-store-50lines.git
-   cd vanessa-store-50lines
-   ```
+   git clone https:https://github.com/vkampiire-cloud/Books-and-notes-vault-.git
 2. **Run Locally:** Start any local web server (needed for ES modules):
    ```bash
    python -m http.server 8000
