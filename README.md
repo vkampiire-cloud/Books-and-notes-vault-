@@ -4,6 +4,8 @@
 **Course:** Frontend Web Development (Summative: Responsive UI)  
 **Live Application:** 
 **Demo Video (2–3 min):** 
+**sketch:**<img width="759" height="1080" alt="demo sketch" src="https://github.com/user-attachments/assets/b505a49c-c927-4685-92c9-b5877541df00" />
+
 
 ---
 
