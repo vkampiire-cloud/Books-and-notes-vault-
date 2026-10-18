@@ -8,8 +8,9 @@
 
  };
  //back reference to detect duplicate consecutive words 
- export function findDuplicateword(text ){
-    const match = String (text ??'').match (/\b(\w+)\s+\1\b/i);
-    return match ? match[1] : null;
+export function findDuplicateWord(text) {
+   const match = String(text ?? '').match(/\b(\w+)\s+\1\b/i);
+  return match ? match[1] : null;
+
     
  }

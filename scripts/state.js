@@ -1,5 +1,5 @@
 //Reactive Data STore & Calculation 
-import { load ,save } from './storage.js ';
+import { load, save } from './storage.js';
 export  let books = load ();
 export let sortField = 'date', sortAsc = false, query = '', caseIns = true;
 
@@ -26,7 +26,7 @@ export  function getFilteredBooks(regex) {
 export function getStats (){
     const totalPages = books.reduce((s, b) => s + (Number(b.pages) || 0), 0);
     const tagCoUNTS={};
-    books.forEach(b => { if (b.tag) tagCounts[b.tag] = (tagCounts[b.tag] || 0) + 1; });
+books.forEach(b => { if (b.tag) tagCounts[b.tag] = (tagCounts[b.tag] || 0) + 1; });
     const topTag = Object.keys (tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a])[0] || '-';
     return{ totalBooks : books.length ,totalPages,topTag};
 }

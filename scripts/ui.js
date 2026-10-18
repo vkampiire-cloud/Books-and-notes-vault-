@@ -1,8 +1,8 @@
 //DOM Rendering ,Events &dialog 
 import { books, query, caseIns, setQuery, setCase, setSort, addBook, updateBook, deleteBook, setBooks, getFilteredBooks, getStats } from './state.js';
-import { compileRegex , highlight} from'./search.js ';
+import { compileRegex, highlight } from './search.js';
 import { exportJSON, importJSON } from './storage.js';
-import  { findDuplicateWord } from './validators.js';
+import { findDuplicateWord } from './validator.js';
 
 export function toast(msg){ 
     const el = document.getElementById('toast');
@@ -26,8 +26,7 @@ export function render (){
 
         const mCards = document.getElementById( 'mobile-cards');
         if (mCards) mCards.innerHTML = filtered.map(b => `<div class="m-card"><h3>${highlight(b.title, re)}</h3><p style="color:var(--muted);font-size:0.85rem;">by ${highlight(b.author, re)} • ${highlight(b.pages, re)}p • #${highlight(b.tag, re)}</p><div style="margin-top:6px;"><button type="button" class="btn-edit" data-id="${b.id}" style="color:var(--sky);background:none;border:none;cursor:pointer;margin-right:12px;">Edit</button><button type="button" class="btn-del" data-id="${b.id}" style="color:var(--rose);background:none;border:none;cursor:pointer;">Delete</button></div></div>`).join('');
-  document.getElementById('search-count').textContent = `${filtered,length} of ${books.length} books found`;
-  
+ document.getElementById('search-count').textContent = `${filtered.length} of ${books.length} books found`;
   const unit= document.getElementById('pref-unit')?.value || 'pages';
   const displayPages = unit === 'hours' ? (stats.totalPages / 40).toFixed(1) + ' hrs' : unit === 'minutes' ? Math.round(stats.totalPages * 1.5) + ' mins' : stats.totalPages.toLocaleString() + ' p.';
   document.getElementById('stat-total').textContent = stats.totalBooks;
@@ -40,7 +39,7 @@ export function render (){
   if (live) {
     const over = stats.totalPages >= cap;
     live.textContent = over ? `Target reached! ${stats.totalPages.toLocaleString()} / ${cap.toLocaleString()} pages completed!` : `${stats.totalPages.toLocaleString()} of ${cap.toLocaleString()} pages read (${(cap - stats.totalPages).toLocaleString()} pages remaining).`;
-live
+
 live.setAttribute('aria-live', over ? 'assertive' : 'polite');
     live.style.color = over ? 'var(--mint)' : 'var(--muted)';
   }

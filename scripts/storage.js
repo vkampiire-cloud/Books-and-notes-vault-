@@ -1,7 +1,7 @@
  //Local storage & JSON handling 
  const KEY ='booknotes:data';
- export const load = () =>JSON.parse (localStorage.getitem(KEY)||'[}')
- export const save = data =>localStorage.setItem(KEY ,JSON.stringify (data));
+ export const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+export const save = data => localStorage.setItem(KEY, JSON.stringify(data));
 
  export function exportJSON(data) {
     const a = document.createElement('a');
@@ -18,6 +18,6 @@
             else alert ('InvalidJSON: expected an array.');
         }catch { alert ('Could not parse Json File ');}
         };
-        reader.readAsRet(file);
+        reader.readAsText(file);
     }
  

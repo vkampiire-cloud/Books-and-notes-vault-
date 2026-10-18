@@ -6,5 +6,5 @@
  
  export function  highlight ( text,regex ) { 
     if (!regex || !text ) return String (text ?? '');
-    return String(text).replace(regex,m=> '<mark>${m}</mark>');
+   return String(text).replace(regex,m=> '<mark>${m}</mark>');
  }
