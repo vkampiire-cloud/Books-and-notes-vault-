@@ -2,8 +2,8 @@
 
 **Student Developer:** Vanessa Kampiire | **Institution:** African Leadership University (ALU) — Sept 2026  
 **Course:** Frontend Web Development (Summative: Responsive UI)  
-**Live Application:** 
-**Demo Video (2–3 min):** 
+**Live Application:** [https://vkampiire-cloud.github.io/Books-and-notes-vault-/](https://vkampiire-cloud.github.io/Books-and-notes-vault-/)  
+**Demo Video (2–3 min):** To be added  
 **sketch:**<img width="759" height="1080" alt="demo sketch" src="https://github.com/user-attachments/assets/b505a49c-c927-4685-92c9-b5877541df00" />
 
 
@@ -20,7 +20,9 @@
 ## ⚙️ 2. Setup Guide
 1. **Clone & Navigate:**
    ```bash
-   git clone https:https://github.com/vkampiire-cloud/Books-and-notes-vault-.git
+   git clone https://github.com/vkampiire-cloud/Books-and-notes-vault-.git
+   cd Books-and-notes-vault-
+   ```
 2. **Run Locally:** Start any local web server (needed for ES modules):
    ```bash
    python -m http.server 8000
@@ -81,7 +83,7 @@
 ## 📁 8. File Structure & Deployment
 
 ```
-vanessa-store-50lines/
+Books-and-notes-vault-/
 ├── index.html        # Semantic HTML structure & modal dialog
 ├── tests.html        # Automated in-browser unit test suite
 ├── seed.json         # 13 default textbook & study notes records

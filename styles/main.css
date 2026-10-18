@@ -1,4 +1,4 @@
-/* one style sheet for bookNotes */
+/* styles/main.css - All-in-One Complete Stylesheet for BookNotes */
 :root {
   --bg: #0f1217;
   --card: #161c24;
@@ -73,7 +73,7 @@ nav {
   gap: 1.2rem;
 }
 
-.nav-link a {
+.nav-links a {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.9rem;
@@ -152,7 +152,6 @@ a:hover {
   font-size: 1.6rem;
   color: var(--sky);
   margin-top: 4px;
-  margin-bottom: 1rem;
 }
 
 .target-box {

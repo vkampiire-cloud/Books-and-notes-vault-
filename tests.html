@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNotes — Unit Tests</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f1217; color: #f1f5f9; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; color: #38bdf8; margin-bottom: 0.5rem; }
+    .score { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .pass { color: #34d399; } .fail { color: #f43f5e; }
+    .card { background: #161c24; border: 1px solid rgba(148,163,184,0.16); border-radius: 8px; margin-bottom: 0.75rem; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .badge { font-weight: 700; font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; }
+    .badge.ok { background: rgba(52,211,153,0.15); color: #34d399; }
+    .badge.err { background: rgba(244,63,94,0.15); color: #f43f5e; }
+    a { color: #38bdf8; text-decoration: none; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <h1>BookNotes Automated Unit Tests</h1>
+    <a href="index.html">&larr; Back to App</a>
+  </div>
+  <div class="score" id="score">Running tests...</div>
+  <div id="results"></div>
+  <script type="module">
+    import { PATTERNS, findDuplicateWord } from './scripts/validators.js';
+    import { compileRegex, highlight, escapeHtml } from './scripts/search.js';
+
+    let passed = 0, failed = 0, results = [];
+    function test(name, fn) {
+      try { fn(); passed++; results.push({ name, pass: true }); }
+      catch (e) { failed++; results.push({ name, pass: false, err: e.message }); }
+    }
+    function assert(cond, msg = 'Assertion failed') { if (!cond) throw new Error(msg); }
+
+    // 1. Title Regex Validation
+    test('Title: accepts "Clean Code"', () => assert(PATTERNS.title.test('Clean Code')));
+    test('Title: rejects leading/trailing spaces', () => assert(!PATTERNS.title.test(' Clean ') && !PATTERNS.title.test('Code ')));
+
+    // 2. Author Regex Validation
+    test('Author: accepts "Robert C. Martin"', () => assert(PATTERNS.author.test('Robert C. Martin')));
+    test('Author: rejects numbers in author name', () => assert(!PATTERNS.author.test('Robert Martin 2nd')));
+
+    // 3. Pages Numeric Validation
+    test('Pages: accepts whole positive integer 464', () => assert(PATTERNS.pages.test('464')));
+    test('Pages: rejects 0 or negative numbers', () => assert(!PATTERNS.pages.test('0') && !PATTERNS.pages.test('-20')));
+
+    // 4. Date ISO Format Validation
+    test('Date: accepts ISO calendar date "2026-10-14"', () => assert(PATTERNS.date.test('2026-10-14')));
+    test('Date: rejects invalid format "14/10/2026"', () => assert(!PATTERNS.date.test('14/10/2026')));
+
+    // 5. Category / Tag Validation
+    test('Tag: accepts "Software-Engineering"', () => assert(PATTERNS.tag.test('Software-Engineering')));
+    test('Tag: rejects special symbols in tag', () => assert(!PATTERNS.tag.test('Tag #1!')));
+
+    // 6. Advanced Regex: Back-reference duplicate word detector
+    test('Advanced Regex: catches duplicate word "repeated repeated"', () => assert(findDuplicateWord('notes repeated repeated here') === 'repeated'));
+    test('Advanced Regex: allows normal non-duplicate words', () => assert(findDuplicateWord('unique words only') === null));
+
+    // 7. Safe Regex Compiler with try/catch
+    test('Safe Regex: compiles valid pattern', () => assert(compileRegex('\\d{3}') !== null));
+    test('Safe Regex: returns null on malformed syntax "[a-z" without crashing', () => assert(compileRegex('[a-z') === null));
+
+    // 8. Highlight with <mark> and XSS safety
+    test('Highlight: wraps match with <mark>', () => assert(highlight('Clean Code', /Clean/i) === '<mark>Clean</mark> Code'));
+    test('Highlight: escapes HTML to prevent XSS', () => assert(escapeHtml('<script>').includes('&lt;script&gt;')));
+
+    // 9. JSON Import Schema Validation
+    function validateImport(d) { return Array.isArray(d) && d.every(b => b && b.title && b.author); }
+    test('JSON Import: validates valid array of books', () => assert(validateImport([{ title: 'A', author: 'B' }])));
+    test('JSON Import: rejects non-array object', () => assert(!validateImport({ invalid: true })));
+
+    // Render results
+    document.getElementById('score').innerHTML = `<span class="pass">✓ ${passed} Passed</span> &bull; <span class="fail">✕ ${failed} Failed</span> &bull; Total: ${passed + failed}`;
+    document.getElementById('results').innerHTML = results.map(r => `
+      <div class="card">
+        <span>${r.name}${r.err ? `<br><small class="fail">${r.err}</small>` : ''}</span>
+        <span class="badge ${r.pass ? 'ok' : 'err'}">${r.pass ? 'PASS' : 'FAIL'}</span>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

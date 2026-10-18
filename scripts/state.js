@@ -1,32 +1,53 @@
-//Reactive Data STore & Calculation 
+// scripts/state.js - Reactive Data Store & Calculations (~35 lines)
 import { load, save } from './storage.js';
-export  let books = load ();
+
+export const SEED_DEFAULT = [
+  {"id":"rec_0001","title":"Clean Code","author":"Robert C. Martin","pages":464,"tag":"Software-Engineering","date":"2026-10-01","notes":"Small focused functions."},
+  {"id":"rec_0002","title":"Design Patterns","author":"Erich Gamma","pages":395,"tag":"Architecture","date":"2026-10-02","notes":"Gang of Four design patterns catalog."},
+  {"id":"rec_0003","title":"The Pragmatic Programmer","author":"David Thomas","pages":352,"tag":"Career","date":"2026-10-03","notes":"Tracer bullets and craftsmanship."},
+  {"id":"rec_0004","title":"Computer Systems","author":"Randal E. Bryant","pages":1104,"tag":"Systems","date":"2026-10-04","notes":"Memory hierarchy and CPU caching."},
+  {"id":"rec_0005","title":"Introduction to Algorithms","author":"Thomas H. Cormen","pages":1312,"tag":"Computer-Science","date":"2026-10-05","notes":"Graph theory and dynamic programming."},
+  {"id":"rec_0006","title":"Structure and Interpretation of Computer Programs","author":"Harold Abelson","pages":657,"tag":"Computer-Science","date":"2026-10-06","notes":"Metalinguistic abstraction and Lisp."},
+  {"id":"rec_0007","title":"Designing Data-Intensive Applications","author":"Martin Kleppmann","pages":616,"tag":"Systems","date":"2026-10-07","notes":"Reliability, scalability, and maintainability."},
+  {"id":"rec_0008","title":"Refactoring","author":"Martin Fowler","pages":448,"tag":"Software-Engineering","date":"2026-10-08","notes":"Extract method and code smells."},
+  {"id":"rec_0009","title":"Cracking the Coding Interview","author":"Gayle Laakmann McDowell","pages":687,"tag":"Interview","date":"2026-10-09","notes":"Technical algorithms and complexity."},
+  {"id":"rec_0010","title":"The Mythical Man-Month","author":"Frederick P. Brooks Jr","pages":322,"tag":"Management","date":"2026-10-10","notes":"Adding manpower to a late project."},
+  {"id":"rec_0011","title":"Head First Design Patterns","author":"Eric Freeman","pages":694,"tag":"Architecture","date":"2026-10-11","notes":"Visual and cognitive patterns learning."},
+  {"id":"rec_0012","title":"Deep Learning","author":"Ian Goodfellow","pages":800,"tag":"Artificial-Intelligence","date":"2026-10-12","notes":"Neural networks and gradient descent."},
+  {"id":"rec_0013","title":"You Don't Know JS","author":"Kyle Simpson","pages":98,"tag":"JavaScript","date":"2026-10-13","notes":"Scope and closures repeated repeated."}
+];
+
+export let books = load(SEED_DEFAULT);
 export let sortField = 'date', sortAsc = false, query = '', caseIns = true;
 
-export function setQuery (q) { query = q; }
-export function  setCase(ci) { caseIns = ci;}
-export function  setSort (field){
-    sortAsc = sortField === field ? !sortAsc : true;
-    sortField = field ;
+export function setQuery(q) { query = q; }
+export function setCase(ci) { caseIns = ci; }
+export function setSort(field) {
+  sortAsc = sortField === field ? !sortAsc : true;
+  sortField = field;
 }
-export function addBook (book) { books.push(book); save(books); }
-export function updateBook( id,book){
-    const  idx = books.findIndex(b => b.id === id);
-    if ( idx>=0) { books[idx] = { ...books[idx], ...book }; save(books);}
 
+export function addBook(book) { books.push(book); save(books); }
+export function updateBook(id, book) {
+  const idx = books.findIndex(b => b.id === id);
+  if (idx >= 0) { books[idx] = { ...books[idx], ...book }; save(books); }
 }
-export function  deleteBook (id) { books = books.filter(b => b.id !== id); save(books);}
-export function setBooks (newBooks) { books = newBooks; save(books);}
+export function deleteBook(id) { books = books.filter(b => b.id !== id); save(books); }
+export function setBooks(newBooks) { books = newBooks; save(books); }
 
-export  function getFilteredBooks(regex) {
-    const list =  books.filter(b => !regex || [b.title, b.author, b.tag, b.pages, b.notes].some(f => regex.test(String(f ?? ''))));
-    return list.sort ((a, b) => (sortField === 'pages' ? (a.pages - b.pages) : String(a[sortField]).localeCompare(String(b[sortField]))) * (sortAsc ? 1 : -1));
-
+export function getFilteredBooks(regex) {
+  if (query && !regex) return [];
+  const list = books.filter(b => !regex || [b.title, b.author, b.tag, b.pages, b.notes].some(f => regex.test(String(f ?? ''))));
+  return list.sort((a, b) => {
+    if (sortField === 'pages') return (Number(a.pages) - Number(b.pages)) * (sortAsc ? 1 : -1);
+    return String(a[sortField] ?? '').localeCompare(String(b[sortField] ?? '')) * (sortAsc ? 1 : -1);
+  });
 }
-export function getStats (){
-    const totalPages = books.reduce((s, b) => s + (Number(b.pages) || 0), 0);
-    const tagCoUNTS={};
-books.forEach(b => { if (b.tag) tagCounts[b.tag] = (tagCounts[b.tag] || 0) + 1; });
-    const topTag = Object.keys (tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a])[0] || '-';
-    return{ totalBooks : books.length ,totalPages,topTag};
+
+export function getStats() {
+  const totalPages = books.reduce((s, b) => s + (Number(b.pages) || 0), 0);
+  const tagCounts = {};
+  books.forEach(b => { if (b.tag) tagCounts[b.tag] = (tagCounts[b.tag] || 0) + 1; });
+  const topTag = Object.keys(tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a])[0] || '-';
+  return { totalBooks: books.length, totalPages, topTag };
 }

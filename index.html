@@ -1,52 +1,62 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <head> 
-        <meta charset ="UTF-8"><meta name="viewport" content="width=device-width,intial-scale=1.0">
-        <title>BookNotes -Vanessa Kampiire</title>
-        <link rel="stylesheet" href="styles/main.css">
-    </head>
-    <body>
-        <a href="#main" class="skip-link">Skip to main content</a>
-        <header role="banner"><nav aria -label="Main Navigation "><a href="#about" class="brand">BookNotes</a>
-            <ul class = "nav-links"> <li><a href="#about">About</a></li><li><a href ="#dashboard">Dashboard</a></li><li><a href="#catalog">Catalog</a></li> <li><a href="settings">Settings</a></li><ul>
-<button type ="button" id="btn-open-add" class="btn"> + Add Book </button></nav></header>
-<main id="main">
-<section id="about" araia-labelledby="'h-about">
-    <h1 id="about" >About Book Notes </h1><p> Personal readinglog& notes valut by Vanessa Kampiire (ALU).</p>
-    <p> <a href="https://github.com/vanessakampiire" id= "contact -gh">GitHub</a> | <a href="mailto:"v.kampiire@alustudent.com " id=" contact-email">Email</a>|<a href="tests.html">Run Test</a></p>
-</section>
-<h2 id="h-dash"> Reading Dashboard </h2>
-<div class = "stats-grid"><div class="card">Books:<b id="stat-total">0</b></div><div class="card">Page:<b id="stat-pages">0</b></div><div class="card" >Top tag:<b id="stat-tag">-</b></div></div>
-    <div class="traget-box" ><label for="goal-progress">Semester Target:</label> <progress id="goal-progress" value="0" max="3500"></progress></div> 
-    <div id ="cap-live"  role="status" aria-live="'polite"">Reading Target on track.</div></div>
-    <div id="trend-chart "class="trend-bars" araia-label="7day activity chart"></div>
-</section>
-<section id="catalog" araial-labelledby="h-catalog">
-    <h2 id="h-catalog">Book Catalog</h2>
-    <div class = "serach-bar" role="search"><label for="search-input" class="sr-only">Search</label><input type="text" id="search-input"placeholder="Regex search(e.g /b(/w+)/s+/1b)..." ></div>
-    <label><input type ="checkbox" id="case-toggle"> Case -insensitive(/i)</label><span id="search-count" role="status" araia-live="polite">0 books found </span></div>
-    <div class="table -wrap"> <table araia-label="Books Table"><thead><tr><th><button type="button" data-sort="title"> Title A-Z </button></th> <th><button type="button" data-sort="author">Author</button></th><th><button type ="button" data-sort="pages">Pages</button></th><th><button type="button" data-sort="tag">Tag</button></th><th><button type="button" data-sort="date">Date</button></th><th>Actions</th></tr></thead></div>
-        <tbody id="books-tbody"></tbody></table></div>
-        <div id ="mobile-cards" class="mobile-cards"></div>
-</section>
-<section id ="settings" araia-labelledby="h-settings">
-    <h2 id ="h-settings"> Preferences& Data</h2>
-    <label  for ="pref-cap">Reading Target(pages):</label><input type="number " id="pref-cap" value="3500">
-    <label for="pref-unit">Display Unit :</label><select id ="pref-unit"><option value ="pages">Pages</option><option value="hours">Hours</option><option value="minutes">Minutes</option></select>
-    <div class="data-actions"><btutton type= "button" id="btn-export">Export JSON</btutton> <label class="btn">Import Json <input type ="file" id="input-import" accept=".json" hidden></label></div>
-
-</section>
-</main>
-<dialog id ="modal-form " aria-labelledby="h-modal"><form id="book-form" method="dialog">
-    <h3 id="h-modal" >Book Entry </h3><input type="hidden" id="entry-id">
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNotes — Student Reading Log & Notes Vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header role="banner"><nav aria-label="Main Navigation"><a href="#about" class="brand">BookNotes<span class="dot">•</span></a>
+    <ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#dashboard">Dashboard</a></li><li><a href="#catalog">Catalog</a></li><li><a href="#settings">Settings</a></li></ul>
+    <button type="button" id="btn-open-add" class="btn">+ Add Book</button></nav></header>
+  <main id="main">
+    <section id="about" aria-labelledby="h-about">
+      <div class="hero-badge">Student Reading Workspace</div>
+      <h1 id="h-about">About BookNotes</h1><p>Personal reading log & study notes vault by Vanessa Kampiire (ALU).</p>
+      <p><a href="https://github.com/vanessakampiire" id="contact-gh">GitHub</a> | <a href="mailto:v.kampiire@alustudent.com" id="contact-email">Email</a> | <a href="tests.html">Run Unit Tests</a></p>
+    </section>
+    <section id="dashboard" aria-labelledby="h-dash">
+      <h2 id="h-dash">Reading Dashboard</h2>
+      <div class="stats-grid"><div class="card"><span>Total Books</span><b id="stat-total">0</b></div><div class="card"><span>Pages Read</span><b id="stat-pages">0</b></div><div class="card"><span>Top Subject</span><b id="stat-tag">-</b></div></div>
+      <div class="target-box"><div class="target-header"><label for="goal-progress">Semester Target:</label><span id="cap-live" role="status" aria-live="polite">Reading target on track.</span></div>
+      <progress id="goal-progress" value="0" max="3500"></progress></div>
+      <div class="chart-box"><div class="chart-header"><span>7-Day Activity Trend (Pages Read)</span></div><div id="trend-chart" class="trend-bars" aria-label="7 day activity chart"></div></div>
+    </section>
+    <section id="catalog" aria-labelledby="h-catalog">
+      <div class="catalog-header"><h2 id="h-catalog">Book Catalog & Notes</h2>
+      <button type="button" id="btn-quick-sync" class="btn-subtle" title="Reload all 13 seed textbooks from seed.json">↻ Reload Seed (13 Books)</button></div>
+      <div class="preset-chips" aria-label="Regex search presets">
+        <span class="preset-label">Presets:</span>
+        <button type="button" class="chip" data-regex="\b(\w+)\s+\1\b">Duplicate words</button>
+        <button type="button" class="chip" data-regex="\b([5-9]\d{2}|\d{4,})\b">Thick books (≥500p)</button>
+        <button type="button" class="chip" data-regex="\b([1-9]|[1-9]\d|1\d{2})\b">Quick reads (<200p)</button>
+        <button type="button" class="chip" data-regex="^(Computer-Science|Architecture)$">STEM tags</button>
+      </div>
+      <div class="search-bar" role="search"><label for="search-input" class="sr-only">Search</label><input type="text" id="search-input" placeholder="Regex search (e.g. \b(\w+)\s+\1\b or Clean)...">
+      <label class="case-label"><input type="checkbox" id="case-toggle" checked> Case-insensitive (/i)</label><span id="search-count" role="status" aria-live="polite">0 books found</span></div>
+      <div class="table-wrap"><table aria-label="Books Table"><thead><tr><th><button type="button" data-sort="title">Title A-Z</button></th><th><button type="button" data-sort="author">Author</button></th><th><button type="button" data-sort="pages">Pages</button></th><th><button type="button" data-sort="tag">Tag</button></th><th><button type="button" data-sort="date">Date</button></th><th>Actions</th></tr></thead>
+      <tbody id="books-tbody"></tbody></table></div>
+      <div id="mobile-cards" class="mobile-cards"></div>
+    </section>
+    <section id="settings" aria-labelledby="h-settings">
+      <h2 id="h-settings">Preferences & Data</h2>
+      <label for="pref-cap">Reading Target (Pages):</label><input type="number" id="pref-cap" value="3500">
+      <label for="pref-unit">Display Unit:</label><select id="pref-unit"><option value="pages">Pages</option><option value="hours">Hours</option><option value="minutes">Minutes</option></select>
+      <div class="data-actions"><button type="button" id="btn-export">Export JSON</button><label class="btn">Import JSON<input type="file" id="input-import" accept=".json" hidden></label><button type="button" id="btn-reset-seed">Reset to Seed</button></div>
+    </section>
+  </main>
+  <dialog id="modal-form" aria-labelledby="h-modal"><form id="book-form" method="dialog">
+    <h3 id="h-modal">Book Entry</h3><input type="hidden" id="entry-id">
     <label for="inp-title">Title</label><input id="inp-title" required pattern="^\S(?:.*\S)?$"><span class="err" id="err-title"></span>
-         <label for="inp-author"></label>Author</label><input id="inp-author" required pattern="^[A-Za-z]+(?:[ .'-]+[A-Za-z]+)*\.?$"><span class="err" id="err-author"></span>
-         <label for="inp-pages">Pages</label><input type ="number" id="inp-pages"required min="1" ><label for="inp-date">Date</label><input type="date" id="inp-date" required>
-         <label for="inp-tag">Tag></label><input id="inp-tag" required pattern="^[A-Za-z]+(?:[ -][A-Za-z]+)*$"><label for="inp-notes">Notes</label><textarea id="inp-notes"></textarea>
-         <div class="'modal-btns"><button type="button" id="btn-close-modal">Cancel</button><button type="submit" id="btn-save">Save Book</button></div></form></dialog>
-<div id="toast" role="status" aria-live="polite"></div><footer role="contentinfo"><p>&copy ; 2026 Vanessa Kampiire &bull ; ALU</p></footer>
-<script type ="module "src="scripts/app.js">,</script>
-
-        
-    </body>
+    <label for="inp-author">Author</label><input id="inp-author" required pattern="^[A-Za-z]+(?:[ .'-]+[A-Za-z]+)*\.?$"><span class="err" id="err-author"></span>
+    <label for="inp-pages">Pages</label><input type="number" id="inp-pages" required min="1"><label for="inp-date">Date</label><input type="date" id="inp-date" required>
+    <label for="inp-tag">Tag</label><input id="inp-tag" required pattern="^[A-Za-z]+(?:[ -][A-Za-z]+)*$"><label for="inp-notes">Notes</label><textarea id="inp-notes"></textarea>
+    <div class="modal-btns"><button type="button" id="btn-close-modal">Cancel</button><button type="submit" id="btn-save">Save Book</button></div></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div><footer role="contentinfo"><p>&copy; 2026 Vanessa Kampiire &bull; ALU</p></footer>
+  <script type="module" src="scripts/app.js"></script>
+</body>
 </html>

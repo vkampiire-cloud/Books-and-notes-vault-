@@ -1,18 +1,15 @@
-[ 
-{ "id":"rec_0001","title":"Clean Code","author":"Robert C. Martin","pages":464,"tag":"Software-Engineering","date":"2026-10-01","notes":"Small focused functions."},
-{ "id":"rec_0002","title":"Design Patterns","author":"Erich Gamma","pages":395,"tag":"Architecture","date":"2026-10-02","notes":"Gang of Four design patterns catalog."},
-{ "id":"rec_0003","title":"The Pragmatic Programmer","author":"David Thomas","pages":352,"tag":"Career","date":"2026-10-03","notes":"Tracer bullets and craftsmanship."},
-{ "id" : "rec_0004","title":"Computer Systems","author":"Randal E. Bryant","pages":1104,"tag":"Systems","date":"2026-10-04","notes":"Memory hierarchy and CPU caching."},
-{ "id":"rec_0005","title":"Introduction to Algorithms","author":"Thomas H. Cormen","pages":1312,"tag":"Computer-Science","date":"2026-10-05","notes":"Graph theory and dynamic programming."},
-{ "id":"rec_0006","title":"Structure and Interpretation of Computer Programs","author":"Harold Abelson","pages":657,"tag":"Computer-Science","date":"2026-10-06","notes":"Metalinguistic abstraction and Lisp." },
-{ "id":"rec_0007","title":"Designing Data-Intensive Applications","author":"Martin Kleppmann","pages":616,"tag":"Systems","date":"2026-10-07","notes":"Reliability, scalability, and maintainability." },
-{ "id": "rec_0008","title":"Refactoring","author":"Martin Fowler","pages":448,"tag":"Software-Engineering","date":"2026-10-08","notes":"Extract method and code smells."},
-{ "id": "rec_0009","title":"Cracking the Coding Interview","author":"Gayle Laakmann McDowell","pages":687,"tag":"Interview","date":"2026-10-09","notes":"Technical algorithms and complexity."},
-{ "id":"rec_0010","title":"The Mythical Man-Month","author":"Frederick P. Brooks Jr","pages":322,"tag":"Management","date":"2026-10-10","notes":"Adding manpower to a late project."},
-{ "id":"rec_0011","title":"Head First Design Patterns","author":"Eric Freeman","pages":694,"tag":"Architecture","date":"2026-10-11","notes":"Visual and cognitive patterns learning."},
-{ "id": "rec_0012","title":"Deep Learning","author":"Ian Goodfellow","pages":800,"tag":"Artificial-Intelligence","date":"2026-10-12","notes":"Neural networks and gradient descent."},
-{ "id": "rec_0013","title":"You Don't Know JS","author":"Kyle Simpson","pages":98,"tag":"JavaScript","date":"2026-10-13","notes":"Scope and closures repeated repeated."}
-
-
-
+[
+  {"id":"rec_0001","title":"Clean Code","author":"Robert C. Martin","pages":464,"tag":"Software-Engineering","date":"2026-10-01","notes":"Small focused functions."},
+  {"id":"rec_0002","title":"Design Patterns","author":"Erich Gamma","pages":395,"tag":"Architecture","date":"2026-10-02","notes":"Gang of Four design patterns catalog."},
+  {"id":"rec_0003","title":"The Pragmatic Programmer","author":"David Thomas","pages":352,"tag":"Career","date":"2026-10-03","notes":"Tracer bullets and craftsmanship."},
+  {"id":"rec_0004","title":"Computer Systems","author":"Randal E. Bryant","pages":1104,"tag":"Systems","date":"2026-10-04","notes":"Memory hierarchy and CPU caching."},
+  {"id":"rec_0005","title":"Introduction to Algorithms","author":"Thomas H. Cormen","pages":1312,"tag":"Computer-Science","date":"2026-10-05","notes":"Graph theory and dynamic programming."},
+  {"id":"rec_0006","title":"Structure and Interpretation of Computer Programs","author":"Harold Abelson","pages":657,"tag":"Computer-Science","date":"2026-10-06","notes":"Metalinguistic abstraction and Lisp."},
+  {"id":"rec_0007","title":"Designing Data-Intensive Applications","author":"Martin Kleppmann","pages":616,"tag":"Systems","date":"2026-10-07","notes":"Reliability, scalability, and maintainability."},
+  {"id":"rec_0008","title":"Refactoring","author":"Martin Fowler","pages":448,"tag":"Software-Engineering","date":"2026-10-08","notes":"Extract method and code smells."},
+  {"id":"rec_0009","title":"Cracking the Coding Interview","author":"Gayle Laakmann McDowell","pages":687,"tag":"Interview","date":"2026-10-09","notes":"Technical algorithms and complexity."},
+  {"id":"rec_0010","title":"The Mythical Man-Month","author":"Frederick P. Brooks Jr","pages":322,"tag":"Management","date":"2026-10-10","notes":"Adding manpower to a late project."},
+  {"id":"rec_0011","title":"Head First Design Patterns","author":"Eric Freeman","pages":694,"tag":"Architecture","date":"2026-10-11","notes":"Visual and cognitive patterns learning."},
+  {"id":"rec_0012","title":"Deep Learning","author":"Ian Goodfellow","pages":800,"tag":"Artificial-Intelligence","date":"2026-10-12","notes":"Neural networks and gradient descent."},
+  {"id":"rec_0013","title":"You Don't Know JS","author":"Kyle Simpson","pages":98,"tag":"JavaScript","date":"2026-10-13","notes":"Scope and closures repeated repeated."}
 ]
