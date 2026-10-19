@@ -4,10 +4,7 @@
 **Course:** Frontend Web Development (Summative: Responsive UI)  
 **Live Application:** [https://vkampiire-cloud.github.io/Books-and-notes-vault-/](https://vkampiire-cloud.github.io/Books-and-notes-vault-/) 
 **Demo Video (2–3 min):**
-
-
-https://github.com/user-attachments/assets/4d9f91c6-345c-42f6-a0f7-879a6ed68572
-
+https://youtu.be/FK49Xwqn4MI
 
 **sketch:**<img width="759" height="1080" alt="demo sketch" src="https://github.com/user-attachments/assets/b505a49c-c927-4685-92c9-b5877541df00" />
 
